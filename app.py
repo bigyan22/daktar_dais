@@ -70,8 +70,8 @@ def history():
 
 @app.route("/analyze")
 def analyze():
-    if "user_id" not in session:
-        return redirect(url_for("login"))
+    # if "user_id" not in session:
+    #     return redirect(url_for(""))
     return render_template("analyze.html")
 
 @app.route("/doctors")
