@@ -1,12 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page</title>
-</head>
-<body>
-    <h1>DAKTAR DAII SQUAD</h1>
-    <h3>Narendra is a good boy.</h3>
-</body>
-</html>
+{% extends "base.html" %}
+{% block content %}
+
+<h1>Welcome to susu</h1>
+<p>Your personal symptom analyzer and doctor connector.</p>
+
+{% if bmi %}
+<div class="card">
+    <h3>Your BMI</h3>
+    <p>{{ bmi }}</p>
+</div>
+{% else %}
+<p>Login and add history to view BMI.</p>
+{% endif %}
+
+{% endblock %}
