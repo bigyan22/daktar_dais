@@ -1,6 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for, session
 import sqlite3
-import math
 
 app = Flask(__name__)
 app.secret_key = "susu_secret_key"
@@ -10,20 +9,8 @@ def get_db():
 
 @app.route("/")
 def home():
-    bmi = None
-    history = None
-
-    if "user_id" in session:
-        db = get_db()
-        cur = db.cursor()
-        cur.execute("SELECT height, weight FROM history WHERE user_id=? ORDER BY id DESC LIMIT 1",
-                    (session["user_id"],))
-        history = cur.fetchone()
-        if history:
-            h, w = history
-            bmi = round(w / ((h/100) ** 2), 2)
-
-    return render_template("home.html", bmi=bmi)
+   
+    return render_template("home.html")
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
