@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>susu</title>
+    <title>{% block title%} {% endblock %}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
@@ -21,7 +21,8 @@
         {% if session.get("user_id") %}
             <a href="/logout">Logout</a>
         {% else %}
-            <a href="/login" class="btn">Login / Signup</a>
+        <a href="/login" class="btn">Login</a>
+        <a href="/signup" class="btn">SignUp</a>
         {% endif %}
     </div>
 </nav>
